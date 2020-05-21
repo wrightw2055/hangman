@@ -3,35 +3,57 @@
 
 // Going to target the alphabet
 const alphabet = [
-	'A',
-	'B',
-	'C',
-	'D',
+	'Q',
+	'W',
 	'E',
+	'R',
+	'T',
+	'Y',
+	'U',
+	'I',
+	'O',
+	'P',
+	'A',
+	'S',
+	'D',
 	'F',
 	'G',
 	'H',
-	'I',
 	'J',
 	'K',
 	'L',
-	'M',
-	'N',
-	'O',
-	'P',
-	'Q',
-	'R',
-	'S',
-	'T',
-	'U',
-	'V',
-	'W',
-	'X',
-	'Y',
 	'Z',
+	'X',
+	'C',
+	'V',
+	'B',
+	'N',
+	'M',
 ];
 
 // Create a secret word
+// create a modal that prompts when player win or lose
+
+const openBtn = document.getElementById('openModal');
+const modal = document.getElementById('modal');
+const close = document.getElementById('close');
+
+const openModal = () => {
+	modal.style.display = 'block';
+};
+
+const closeModal = () => {
+	modal.style.display = 'none';
+};
+
+openBtn.addEventListener('click', openModal);
+
+close.addEventListener('click', closeModal);
+
+function refreshPage() {
+	window.location.reload(false);
+}
+
 const words = [
 	'JAVASCRIPT',
 	'REACT',
@@ -43,10 +65,10 @@ const words = [
 	'TEXAS',
 ];
 let categories = {
-	LANGUAGES: ['JAVASCRIPT', 'REACT'],
+	CODING_LANGUAGES: ['JAVASCRIPT', ''],
 	SPORTS: ['FOOTBALL', 'BASKETBALL'],
 	ANIMALS: ['GIRAFFE', 'PANTHER'],
-	LOCATION: ['MONTREAL', 'TEXAS'],
+	LOCATIONS: ['MONTREAL', 'TEXAS'],
 };
 // create a string for attempts
 let attempts = 0;
@@ -64,7 +86,11 @@ function handleAddButtons() {
 		button.addEventListener('click', handleButtonClick);
 	}
 }
+
 handleAddButtons();
+
+
+
 
 let counter = 0;
 
@@ -78,10 +104,8 @@ for (const category in categories) {
 		onScreenCategories.innerText = secretCategory;
 	}
 }
-console.log(secretCategory, secretWord);
 const guesses = document.querySelector('.guesses');
 const secretWordArray = secretWord.split('');
-console.log(secretWordArray);
 guesses.innerHTML = secretWordArray.map((letter) => '_').join(' ');
 function handleButtonClick(event) {
 	const selectedLetter = event.target.innerText;
@@ -106,11 +130,11 @@ function checkForWin() {
 	const currentValue = guesses.innerHTML.split(' ').join('');
 	const buttons = document.querySelectorAll('button');
 	if (currentValue === secretWord) {
-        buttons.forEach((button) => (button.disabled = true));
-        alert('You Win')
+		buttons.forEach((button) => (button.disabled = false));
+		openModal();
 	}
-	if (counter >= 6) {
-		buttons.forEach((button) => (button.disabled = true));
+	if (counter >= 7) {
+		buttons.forEach((button) => (button.disabled = false));
 	}
 	if (counter == 1) {
 		document.querySelector('.box').style.backgroundImage =
@@ -136,46 +160,18 @@ function checkForWin() {
 
 	if (counter == 6) {
 		document.querySelector('.box').style.backgroundImage =
-            "url('images/full-body.png')";
-            alert('Try Again Loser');
+			"url('images/full-body.png')";
+		alert('Just Hanging Around Loser!');
 	}
 }
 
-const resetButton = document.querySelector('.resetButton');
-const nameReset = 'reset';
-resetButton.addEventListener('click', handleResetButton);
+// const resetButton = document.querySelector('.resetButton');
+// const nameReset = 'reset';
+// resetButton.addEventListener('click', handleResetButton);
 
-function handleResetButton() {
-	window.location.reload();
-}
+// function handleResetButton() {
+// 	 window.location.reload();
 
-// create a modal that prompts when player win or lose
-
-// const openBtn = document.getElementById('openModal');
-// const modal = document.getElementById('modal');
-// const close = document.getElementById('close');
-
-// const openModal = () => {
-// 	modal.style.display = 'block';
-// };
-
-// const closeModal = () => {
-// 	modal.style.display = 'none';
-// };
-
-// openBtn.addEventListener('click', openModal);
-
-// close.addEventListener('click', closeModal);
-// let restart =
-// function openModal(event) {
-// 	if (currentValue === secretWord) {
-// 		modal.style.display = 'block';
-// 		alert('You Win');
-// 	}
-// 	if (counter >= 6) {
-// 		modal.style.display = 'block';
-// 		alert('Try Again');
-// 	}
 // }
 
 // // if player presses a letter we want to see if that letter occurs in the secret word if so print to page
