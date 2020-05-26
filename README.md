@@ -1,13 +1,13 @@
 # Hangman Game
 
-For project 1 I selected the Hangman game.
+The Hangman game.
 
 ## Tech used
 
 - HTML
 - CSS
 - JAVASCRIPT
-- DOM
+- DOM Manipulation
 
 ## Approach
 
