@@ -1,4 +1,4 @@
-# Project 1: Hangman
+# Hangman Game
 
 For project 1 I selected the Hangman game.
 
