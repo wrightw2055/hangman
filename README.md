@@ -19,7 +19,5 @@ For project 1 I selected the Hangman game.
 - Javascript - I added some more secret words with a category linked to that word as a "hint". I made the words run randomly each time the game starts. I set my winning conditions to be if all letters matches the secret word selected then you win the game, if not each incorrect letter guess would result in a part of the hangman figure being deployed.
 
 ## Unsolved problems
+Want keystrokes to register when playing the game
 
-- Modal - I wanted to display a modal or even a div overlay when a player either wins or loses. I continued running into problems with displaying the modal without use of a button.
-
-- Reset - My reset button continues to get disabled along with all the buttons after a winning or losing condition is met. I feel like I just have to move the disabled method out of a function somewhere, not time to complete.
